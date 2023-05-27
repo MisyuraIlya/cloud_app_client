@@ -10,6 +10,7 @@ const UploadButton: React.FC = () => {
         try {
             const file = await Api.files.uploadFile(options);
             console.log('file',file)
+            setFileList([]);
         } catch(err) {
             notification.error({
                 message:'Erorr!',
@@ -20,6 +21,9 @@ const UploadButton: React.FC = () => {
     }
     return (
         <Upload
+            customRequest={onUploadSuccess}
+            fileList={fileList}
+            onChange={({fileList}) => setFileList(fileList)}
             className={styles.upload}
         >
             <Button type='primary' icon={<CloudUploadOutlined/>} size='large'>
