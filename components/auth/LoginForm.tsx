@@ -29,7 +29,7 @@ const LoginForm = () => {
         }
     }
     return (
-        <div className={styles.root}>
+        <div className={styles.formBlock}>
             <Form
                 name="basic"
                 labelCol={{
@@ -62,10 +62,16 @@ const LoginForm = () => {
             >
                 <Input.Password />
             </Form.Item>
-            <Button type='primary' htmlType="submit">
-                Sign in
+            <Form.Item
+            wrapperCol={{
+                offset: 8,
+                span: 16,
+            }}
+            >
+            <Button type="primary" htmlType="submit">
+                sign in
             </Button>
-
+            </Form.Item>
             </Form>
         </div>
     );

@@ -1,6 +1,7 @@
 import { Header } from "@/components/Header/Header"
 import styles from '../../styles/Home.module.scss';
 import SideBar from "@/components/SideBar/SideBar";
+import { FileActions } from "@/components/FileActions/FileActions";
 export default function DashboardLayout({
     children,
 }: {
@@ -15,8 +16,12 @@ export default function DashboardLayout({
             <div className={styles.sidebar}>
                 <SideBar/>
             </div>
-            <div className="container">
-                {children}
+            <div className={styles.main}>
+                <div className={styles.layout}>
+                    <div className="container">
+                        {children}
+                    </div>
+                </div>
             </div>
         </main>
         </>

@@ -31,7 +31,7 @@ const RegisterForm: React.FC = () => {
         }
     }
     return (
-        <div>
+        <div className={styles.formBlock}>
             <Form
                 name='basic'
                 labelCol={{
@@ -79,19 +79,16 @@ const RegisterForm: React.FC = () => {
                     <Input.Password/>
                 </Form.Item>
 
+
                 <Form.Item
-                    label="full name"
-                    name="fullName"
-                    rules={[
-                        {
-                            required:true,
-                            message:"set full bane"
-                        }
-                    ]}
+                wrapperCol={{
+                    offset: 8,
+                    span: 16,
+                }}
                 >
-                    <Button type='primary' htmlType='submit'>
-                        registration
-                    </Button>
+                <Button type="primary" htmlType="submit">
+                    registration
+                </Button>
                 </Form.Item>
             </Form>
         </div>

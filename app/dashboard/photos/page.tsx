@@ -3,18 +3,17 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Cookies from 'js-cookie';
 import axios from 'axios';
-import * as Api from "../../api";
+import * as Api from "../../../api";
 import AuthProvider from '@/provider/AuthProvider';
 import { Header } from '@/components/Header/Header';
 import { FileItem } from '@/api/dto/files.dto';
 import FileList from '@/components/FileList/FileList';
-import { Files } from '@/modules/Files';
 
 const loadItems = async () => {
-  const res = await Api.files.getAll()
+  const res = await Api.files.getAll('photos')
   return res;
 }
-const Dashboard = () => {
+const DashboardPhotos = () => {
   const [data, setData] = useState<FileItem[]>([])
   const fetchData = async () => {
    const items = await loadItems();
@@ -28,11 +27,11 @@ const Dashboard = () => {
     <>
         <main>
           {/* <h1>Dashboard private</h1> */}
-          <Files items={data} withActions/>
+          <FileList items={data}/>
         </main>
     </>
 
   );
 };
 
-export default Dashboard;
+export default DashboardPhotos;
